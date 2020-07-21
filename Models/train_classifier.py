@@ -26,7 +26,7 @@ nltk.download('wordnet')
 def load_data(database_filepath):
 
     engine = create_engine('sqlite:///' + database_filepath)
-    df = pd.read_sql('Select * from Response', engine)
+    df = pd.read_sql_table('Response', engine)
     X = df['message']
     Y = df.loc[:,'related':]
 
