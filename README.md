@@ -35,5 +35,5 @@ Model: Contains the Machine Learning Pipeline python script file to perform all 
 
 ### Snapshots
 <p align="center">
-  <img src="./img/example.png" alt="Size Limit CLI" width="738">
+  <img src="./img/capture.png" alt="Web app" width="738">
 </p>
