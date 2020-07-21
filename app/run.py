@@ -39,12 +39,16 @@ model = joblib.load("../models/classifier.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+
+    # individual counts of categories
+    category_counts = df.iloc[:, 4:].sum().sort_values(ascending=False)
+
+    # grouping by genre to see aid_related category count
+    aid_related = df[df['aid_related'] == 1].groupby('genre').count()['message']
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
@@ -55,7 +59,43 @@ def index():
             ],
 
             'layout': {
-                'title': 'Distribution of Message Genres',
+                'title': 'Distribution of Genres',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=list(category_counts.index),
+                    y=list(category_counts)
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=genre_names,
+                    y = aid_related
+                ),
+            ],
+
+            'layout': {
+                'title': 'Distribution of messages by genre and Aid related status',
                 'yaxis': {
                     'title': "Count"
                 },
@@ -83,8 +123,7 @@ def go():
     # use model to predict classification for query
     classification_labels = model.predict([query])[0]
     classification_results = dict(zip(df.columns[4:], classification_labels))
-
-    # This will render the go.html Please see that file. 
+ 
     return render_template(
         'go.html',
         query=query,
