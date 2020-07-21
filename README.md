@@ -4,9 +4,9 @@
 This project contains a web app that asks for a message from a potential user who is in danger during a disaster and the app categorizes that message into a particular category such as aid related, weather related, fire or many more.
 
 ### Description of files
-App: Contains javascript files and `app.py` file  which implements Flask & Plotly to create the web app
-Data: Contains two CSV files `disaster_messages.csv` - Contains all the past messages & 'disaster_categories.csv' - contains the categories of the disaster messages
-Model: Contains the Machine Learning Pipeline python script file to perform all the training and testing of the data
+- App: Contains javascript files and `app.py` file  which implements Flask & Plotly to create the web app
+- Data: Contains two CSV files `disaster_messages.csv` - Contains all the past messages & 'disaster_categories.csv' - contains the categories of the disaster messages
+- Model: Contains the Machine Learning Pipeline python script file to perform all the training and testing of the data
 
 ### List of Python libraries used
 `nltk`
