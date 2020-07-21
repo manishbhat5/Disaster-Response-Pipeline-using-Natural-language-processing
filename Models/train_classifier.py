@@ -24,6 +24,7 @@ nltk.download('wordnet')
 
 
 def load_data(database_filepath):
+
     engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql('Select * from Response', engine)
     X = df['message']
@@ -58,7 +59,7 @@ def build_model():
                      ('tfidf', TfidfTransformer()),
                      ('clf', MultiOutputClassifier(RandomForestClassifier()))])
 
-    parameters = {'clf__estimator__max_depth': [10, 20}
+    parameters = {'clf__estimator__max_depth': [10]}
 
     cv = GridSearchCV(pipeline, param_grid=parameters)
 
