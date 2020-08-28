@@ -33,7 +33,7 @@ This project contains a web app that asks for a message from a potential user wh
 
 3. Go to http://127.0.0.1:8080/ 
 
-4. Lik to the Github repo: https://github.com/mrinal1704/Disaster-Response-Pipeline-Project
+4. Link to the Github repo: https://github.com/mrinal1704/Disaster-Response-Pipeline-Project
 
 ### Snapshots
 <p align="center">
